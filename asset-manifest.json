@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/luisprofe.github.io/static/js/main.5b678a08.chunk.js",
-    "main.js.map": "/luisprofe.github.io/static/js/main.5b678a08.chunk.js.map",
+    "main.js": "/luisprofe.github.io/static/js/main.6b11f53b.chunk.js",
+    "main.js.map": "/luisprofe.github.io/static/js/main.6b11f53b.chunk.js.map",
     "runtime-main.js": "/luisprofe.github.io/static/js/runtime-main.01ea689d.js",
     "runtime-main.js.map": "/luisprofe.github.io/static/js/runtime-main.01ea689d.js.map",
-    "static/js/2.5b2f1644.chunk.js": "/luisprofe.github.io/static/js/2.5b2f1644.chunk.js",
-    "static/js/2.5b2f1644.chunk.js.map": "/luisprofe.github.io/static/js/2.5b2f1644.chunk.js.map",
+    "static/js/2.ee533819.chunk.js": "/luisprofe.github.io/static/js/2.ee533819.chunk.js",
+    "static/js/2.ee533819.chunk.js.map": "/luisprofe.github.io/static/js/2.ee533819.chunk.js.map",
     "index.html": "/luisprofe.github.io/index.html",
-    "static/js/2.5b2f1644.chunk.js.LICENSE.txt": "/luisprofe.github.io/static/js/2.5b2f1644.chunk.js.LICENSE.txt"
+    "static/js/2.ee533819.chunk.js.LICENSE.txt": "/luisprofe.github.io/static/js/2.ee533819.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.01ea689d.js",
-    "static/js/2.5b2f1644.chunk.js",
-    "static/js/main.5b678a08.chunk.js"
+    "static/js/2.ee533819.chunk.js",
+    "static/js/main.6b11f53b.chunk.js"
   ]
 }
