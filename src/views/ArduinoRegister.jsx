@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { useLocation } from "react-router";
 import queryString from "query-string";
+import Airtable from "airtable";
+
 
 export default (props) => {
     const { search } = useLocation();
@@ -11,20 +13,28 @@ export default (props) => {
     const [group, setGroup ] = useState("");
     const [sent, setSent ] = useState("");
 
-
+    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY;
+    const AT_BASE = process.env.REACT_APP_AIRTABLE_BASE;
 
     const handleSubmit = (e) => {
         setSent(true)
         e.preventDefault();
         const data = { arduinoId, student, group };
+        const today = new Date();
+        data.date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
-        fetch("https://nelson.free.beeceptor.com", {
-            method: "POST",
-            headers: {"Content-Type":"application/json"},
-            body: JSON.stringify(data)
-        }).then(() => {
-            setSent(true)
-        })
+        var base = new Airtable({apiKey: API_KEY}).base(AT_BASE);
+
+        base('Table 1').create([
+          {
+            "fields": data
+          }
+        ], function(err, records) {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        });
     }
   
   return(
@@ -50,7 +60,7 @@ export default (props) => {
               
                 <div className="form-floating mb-3 text-start">
                     <div className="custom-control custom-radio custom-control-inline">
-                        <input type="radio" name="group" className="custom-control-input" onChange={(e) => setGroup("RoboticaI")}></input>
+                        <input type="radio" name="group" className="custom-control-input" onChange={(e) => setGroup("RoboticaI")} required></input>
                         <label className="custom-control-label">Robótica I</label>
                     </div>
                     <div className="custom-control custom-radio custom-control-inline">
@@ -68,7 +78,7 @@ export default (props) => {
     </div>
       }
       {!id && <div>¿Qué buscas aquí pequeño hacker?<br/>Aquí no hay nada que te pueda interesar<br/>💀 💀 💀</div>}
-      {id && sent && <div class="alert alert-dark" role="alert">Arduino registrado 👍</div>}
+      {id && sent && <div className="alert alert-dark" role="alert">Arduino registrado 👍</div>}
         
 
     </>
